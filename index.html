@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>GoodSpin — Charity Casino Prototype</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand"><span class="brand-mark">✦</span><div><strong>GoodSpin</strong><small>Charity Casino · Demo</small></div></div>
+    <div class="demo-pill">NUR DEMO · VIRTUELLES GUTHABEN</div>
+    <div class="balance">Guthaben <b id="balance">1.000,00 €</b></div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div>
+        <p class="eyebrow">SPIELEN · SCHÜTZEN · SPENDEN</p>
+        <h1>Dein Spiel kann<br><span>einen Zweck unterstützen.</span></h1>
+        <p class="lead">Wähle vor dem Spiel ein gemeinnütziges Projekt. Bei einem Nettoverlust gehen im Demo-Modell 75 % an den gewählten Zweck und 25 % finanzieren den Plattformbetrieb.</p>
+        <div class="trust-row">
+          <span>✓ Transparente Abrechnung</span>
+          <span>✓ Spielerschutz</span>
+          <span>✓ KI nur für Sicherheit</span>
+        </div>
+      </div>
+      <div class="impact-card">
+        <span>Heute simuliert gespendet</span>
+        <strong id="totalDonations">2.450,00 €</strong>
+        <small>Demo-Daten · keine echten Zahlungen</small>
+      </div>
+    </section>
+
+    <section class="layout">
+      <div class="card charity-card">
+        <div class="card-head">
+          <div><span class="step">01</span><div><h2>Spendenzweck wählen</h2><p>Der Zweck wird vor dem Spiel festgelegt.</p></div></div>
+        </div>
+        <div id="charities" class="charities"></div>
+      </div>
+
+      <div class="card game-card">
+        <div class="card-head">
+          <div><span class="step">02</span><div><h2>Demo-Slot</h2><p>Nur virtuelles Guthaben · Zufallszahlen simulieren das Spiel.</p></div></div>
+          <span class="fair-badge">FAIRNESS-MODUS</span>
+        </div>
+        <div class="slot">
+          <div class="reels">
+            <div class="reel" id="r1">🍀</div>
+            <div class="reel" id="r2">💎</div>
+            <div class="reel" id="r3">⭐</div>
+          </div>
+          <div class="slot-message" id="slotMessage">Wähle einen Spendenzweck und starte eine Runde.</div>
+        </div>
+        <div class="controls">
+          <label>Einsatz
+            <select id="bet">
+              <option value="10">10 €</option>
+              <option value="25">25 €</option>
+              <option value="50">50 €</option>
+              <option value="100">100 €</option>
+            </select>
+          </label>
+          <button id="spin" class="primary">SPIN STARTEN</button>
+        </div>
+        <div class="result-grid">
+          <div><span>Nettoverlust</span><b id="loss">0,00 €</b></div>
+          <div><span>Davon Spende (75 %)</span><b id="donation">0,00 €</b></div>
+          <div><span>Plattform (25 %)</span><b id="platform">0,00 €</b></div>
+        </div>
+      </div>
+
+      <aside class="card safety-card">
+        <div class="card-head">
+          <div><span class="step">03</span><div><h2>KI-Spielerschutz</h2><p>Demo eines verantwortungsvollen KI-Konzepts.</p></div></div>
+        </div>
+        <div class="risk-box">
+          <span class="risk-dot"></span><div><small>Risikoindikator</small><strong id="risk">NIEDRIG</strong></div>
+        </div>
+        <div class="meter"><i id="meter"></i></div>
+        <ul class="checks">
+          <li><span>✓</span> Keine personalisierten Spielanreize</li>
+          <li><span>✓</span> Auffällige Muster lösen Schutzmaßnahmen aus</li>
+          <li><span>✓</span> Menschliche Prüfung bei Sanktionen</li>
+          <li><span>✓</span> Datensparsame Auswertung</li>
+        </ul>
+        <button class="secondary" id="pause">30-Minuten-Pause aktivieren</button>
+        <button class="link-btn" id="privacy">Welche Daten werden verarbeitet?</button>
+      </aside>
+    </section>
+
+    <section class="card transparency">
+      <div><div><p class="eyebrow">TRANSPARENZ</p><h2>Jeder Verlust wird nachvollziehbar aufgeteilt.</h2></div>
+      <div class="formula"><b>Nettoverlust</b><span>× 75 %</span><strong>Spende</strong><span>+</span><span>× 25 %</span><strong>Plattform</strong></div></div>
+      <div class="donation-log" id="log"></div>
+    </section>
+  </main>
+
+  <footer>
+    <span>GoodSpin ist ein schulischer/prototypischer Demonstrator. Kein echtes Glücksspiel. Keine Einzahlungen. Keine Auszahlungen.</span>
+    <span>Datenschutz · Spielerschutz · Transparenz</span>
+  </footer>
+
+  <div class="modal hidden" id="modal">
+    <div class="modal-box">
+      <button class="close" id="close">×</button>
+      <p class="eyebrow">DATENSCHUTZ</p>
+      <h2>Welche Daten verarbeitet der Prototyp?</h2>
+      <p>In dieser Demo werden nur lokale Sitzungsdaten verarbeitet. Für ein reales System wären Datenminimierung, Zweckbindung, Zugriffskontrollen, Verschlüsselung, Löschfristen und eine rechtliche Prüfung erforderlich.</p>
+      <div class="privacy-grid">
+        <div><b>Spielverlauf</b><span>Nur für die Demo-Statistik</span></div>
+        <div><b>Risikomuster</b><span>Nur als Schutzsignal, nicht für Werbung</span></div>
+        <div><b>Zahlungsdaten</b><span>In der Demo nicht vorhanden</span></div>
+        <div><b>Personenprofil</b><span>Wird nicht angelegt</span></div>
+      </div>
+    </div>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
